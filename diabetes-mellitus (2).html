@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diabetes Mellitus — A Clinical Overview</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --ink:#1c2b28;
+    --paper:#f6f4ee;
+    --panel:#ffffff;
+    --teal:#1b4b43;
+    --teal-deep:#0f302a;
+    --coral:#b8452f;
+    --gold:#b8892f;
+    --line:#d8d3c4;
+    --muted:#5c655f;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Source Serif 4',serif;
+    color:var(--teal-deep);
+    margin:0 0 .4em 0;
+    font-weight:700;
+  }
+  p{margin:0 0 1em 0;}
+  a{color:var(--teal);}
+
+  /* ===== Header / Hero ===== */
+  header.hero{
+    background:linear-gradient(160deg,var(--teal-deep) 0%,var(--teal) 65%);
+    color:#f2efe4;
+    padding:5rem 6vw 4rem 6vw;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero .eyebrow{
+    font-size:.95rem;
+    color:#cfe3dc;
+    margin-bottom:1rem;
+  }
+  header.hero h1{
+    color:#ffffff;
+    font-size:clamp(2.2rem,5vw,3.6rem);
+    max-width:14ch;
+    line-height:1.05;
+  }
+  header.hero .sub{
+    max-width:56ch;
+    font-size:1.1rem;
+    color:#dfe9e4;
+    margin-top:1rem;
+  }
+  header.hero .meta{
+    margin-top:2.5rem;
+    font-size:.9rem;
+    color:#b9ccc4;
+    border-top:1px solid rgba(255,255,255,.2);
+    padding-top:1rem;
+    display:flex;
+    gap:2rem;
+    flex-wrap:wrap;
+  }
+  .hero-art{
+    position:absolute;
+    right:-3vw;
+    top:50%;
+    transform:translateY(-50%);
+    width:min(360px,34vw);
+    opacity:.9;
+  }
+
+  /* ===== Layout ===== */
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    padding:0 6vw;
+  }
+  nav.toc{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:2px;
+    margin:-2.5rem auto 3rem auto;
+    max-width:900px;
+    padding:1.6rem 2rem;
+    box-shadow:0 12px 30px -18px rgba(15,48,42,.35);
+  }
+  nav.toc h2{font-size:1rem; text-transform:none; letter-spacing:.02em; color:var(--muted); font-family:'Inter',sans-serif; font-weight:600;}
+  nav.toc ol{
+    columns:2;
+    -webkit-columns:2;
+    gap:2rem;
+    margin:.6rem 0 0 0;
+    padding-left:1.1rem;
+    font-size:.95rem;
+  }
+  nav.toc li{margin-bottom:.5rem;}
+  nav.toc a{text-decoration:none; color:var(--ink);}
+  nav.toc a:hover{color:var(--coral);}
+
+  section{
+    max-width:900px;
+    margin:0 auto;
+    padding:3rem 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+  section .tag{
+    color:var(--coral);
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:1.05rem;
+    margin-bottom:.3rem;
+    display:block;
+  }
+  section h2{font-size:1.9rem;}
+  .lede{font-size:1.1rem; color:var(--muted); max-width:70ch;}
+
+  .cols{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:2.5rem;
+    align-items:center;
+    margin-top:1.5rem;
+  }
+  .cols.reverse .art{order:2;}
+  .art{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:1.5rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .art svg{width:100%; height:auto; max-height:260px;}
+  .art figcaption{
+    text-align:center;
+    font-size:.82rem;
+    color:var(--muted);
+    margin-top:.6rem;
+  }
+  figure{margin:0;}
+
+  ul.clean{padding-left:1.2rem; margin:0 0 1em 0;}
+  ul.clean li{margin-bottom:.5rem;}
+
+  .grid3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1.2rem;
+    margin-top:1.5rem;
+  }
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:1.4rem;
+  }
+  .card .num{
+    font-family:'Source Serif 4',serif;
+    font-size:1.6rem;
+    color:var(--coral);
+    display:block;
+    margin-bottom:.3rem;
+  }
+  .card h3{font-size:1.05rem; margin-bottom:.4rem;}
+  .card p{font-size:.92rem; color:var(--muted); margin:0;}
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:1.2rem;
+    font-size:.94rem;
+  }
+  th,td{
+    text-align:left;
+    padding:.7rem .8rem;
+    border-bottom:1px solid var(--line);
+  }
+  th{
+    font-family:'Source Serif 4',serif;
+    color:var(--teal-deep);
+    font-weight:700;
+  }
+  tr:last-child td{border-bottom:none;}
+
+  .stat-row{
+    display:flex;
+    gap:2rem;
+    flex-wrap:wrap;
+    margin-top:1.6rem;
+  }
+  .stat{
+    flex:1;
+    min-width:160px;
+    background:var(--panel);
+    border-left:4px solid var(--coral);
+    padding:1rem 1.2rem;
+  }
+  .stat .n{font-family:'Source Serif 4',serif; font-size:2.1rem; color:var(--teal-deep); display:block;}
+  .stat .l{font-size:.85rem; color:var(--muted);}
+
+  footer{
+    background:var(--teal-deep);
+    color:#cfe3dc;
+    padding:2.5rem 6vw;
+    font-size:.85rem;
+    text-align:center;
+  }
+  footer a{color:#e9dfc4;}
+
+  @media(max-width:760px){
+    .cols, .cols.reverse{grid-template-columns:1fr;}
+    .cols.reverse .art{order:0;}
+    .grid3{grid-template-columns:1fr;}
+    nav.toc ol{columns:1;}
+    .hero-art{display:none;}
+  }
+
+  @media print{
+    header.hero{background:var(--teal-deep) !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    nav.toc{box-shadow:none;}
+    section{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="eyebrow">University Project · Health Sciences</span>
+  <h1>Diabetes Mellitus</h1>
+  <p class="sub">A clinical overview of how the body regulates blood glucose, why that regulation fails, and what can be done about it — covering pathophysiology, types, diagnosis, and management.</p>
+  <div class="meta">
+    <span>Prepared for coursework use</span>
+    <span>Illustrated overview</span>
+    <span>Sections 1–9</span>
+  </div>
+  <svg class="hero-art" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="150" cy="150" r="130" fill="none" stroke="#3f6e64" stroke-width="1.5" stroke-dasharray="3 6" opacity="0.6"/>
+    <path d="M100 150 A50 50 0 1 1 200 150" fill="none" stroke="#e9dfc4" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="150" cy="150" r="10" fill="#b8452f"/>
+    <circle cx="150" cy="90" r="6" fill="#e9dfc4"/>
+    <circle cx="205" cy="150" r="6" fill="#e9dfc4"/>
+    <circle cx="150" cy="210" r="6" fill="#e9dfc4"/>
+    <circle cx="95" cy="150" r="6" fill="#e9dfc4"/>
+  </svg>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#intro">1. What is diabetes mellitus?</a></li>
+    <li><a href="#types">2. Types of diabetes</a></li>
+    <li><a href="#causes">3. Causes &amp; risk factors</a></li>
+    <li><a href="#symptoms">4. Signs &amp; symptoms</a></li>
+    <li><a href="#diagnosis">5. Diagnosis</a></li>
+    <li><a href="#complications">6. Complications</a></li>
+    <li><a href="#management">7. Treatment &amp; management</a></li>
+    <li><a href="#prevention">8. Prevention</a></li>
+    <li><a href="#stats">9. Global impact</a></li>
+  </ol>
+</nav>
+
+<div class="wrap">
+
+  <section id="intro">
+    <span class="tag">Section 1</span>
+    <h2>What is diabetes mellitus?</h2>
+    <div class="cols">
+      <div>
+        <p class="lede">Diabetes mellitus is a group of metabolic disorders characterised by chronically elevated blood glucose (hyperglycaemia), resulting from defects in insulin secretion, insulin action, or both.</p>
+        <p>Insulin is a hormone produced by beta cells in the pancreas. It allows glucose from the bloodstream to enter cells, where it is used for energy. When insulin production or function is impaired, glucose accumulates in the blood instead of reaching the tissues that need it, leading over time to damage in blood vessels, nerves, and organs.</p>
+      </div>
+      <div class="art">
+        <figure>
+          <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="110" cy="120" rx="70" ry="45" fill="#f3c463" opacity="0.25"/>
+            <path d="M50 110 C60 70, 120 60, 150 85 C175 105, 175 140, 150 155 C120 175, 70 165, 55 140 C48 128, 46 118, 50 110 Z" fill="#e3a13f"/>
+            <path d="M150 85 C165 80, 180 90, 178 105 C176 118, 160 122, 150 115" fill="#d68f2e"/>
+            <circle cx="90" cy="115" r="4" fill="#7a4b12"/>
+            <circle cx="110" cy="130" r="4" fill="#7a4b12"/>
+            <circle cx="128" cy="108" r="4" fill="#7a4b12"/>
+            <circle cx="105" cy="100" r="4" fill="#7a4b12"/>
+            <text x="110" y="205" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#5c655f">The pancreas</text>
+          </svg>
+          <figcaption>The pancreas houses beta cells that produce and release insulin.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="types">
+    <span class="tag">Section 2</span>
+    <h2>Types of diabetes</h2>
+    <p class="lede">Diabetes is not a single disease — the three main forms differ in cause, onset, and treatment.</p>
+    <div class="grid3">
+      <div class="card">
+        <span class="num">Type 1</span>
+        <h3>Autoimmune</h3>
+        <p>The immune system destroys insulin-producing beta cells. Usually diagnosed in childhood or adolescence. Requires lifelong insulin therapy.</p>
+      </div>
+      <div class="card">
+        <span class="num">Type 2</span>
+        <h3>Insulin resistance</h3>
+        <p>Cells respond poorly to insulin, and the pancreas gradually cannot keep up with demand. Linked to genetics, weight, and lifestyle. The most common form worldwide.</p>
+      </div>
+      <div class="card">
+        <span class="num">Gestational</span>
+        <h3>Pregnancy-related</h3>
+        <p>Develops during pregnancy due to hormonal changes that increase insulin resistance. Usually resolves after delivery but raises future Type 2 risk.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="causes">
+    <span class="tag">Section 3</span>
+    <h2>Causes &amp; risk factors</h2>
+    <div class="cols reverse">
+      <div class="art">
+        <figure>
+          <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="110" cy="90" r="34" fill="#f6f4ee" stroke="#1b4b43" stroke-width="3"/>
+            <circle cx="110" cy="90" r="12" fill="#b8452f"/>
+            <path d="M76 90 h-14 M144 90 h14 M110 56 v-14 M110 124 v14" stroke="#1b4b43" stroke-width="3" stroke-linecap="round"/>
+            <rect x="70" y="150" width="80" height="46" rx="6" fill="none" stroke="#b8892f" stroke-width="3"/>
+            <path d="M84 150 v-8 a10 10 0 0 1 20 0 v8" fill="none" stroke="#b8892f" stroke-width="3"/>
+            <text x="110" y="212" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5c655f">Genetics + lifestyle interact</text>
+          </svg>
+          <figcaption>Risk arises from a mix of inherited and environmental factors.</figcaption>
+        </figure>
+      </div>
+      <div>
+        <p class="lede">No single cause explains diabetes; risk emerges from an interplay of genetic susceptibility and environmental triggers.</p>
+        <ul class="clean">
+          <li><strong>Type 1:</strong> genetic predisposition combined with an environmental trigger (often viral) that provokes autoimmune attack on beta cells.</li>
+          <li><strong>Type 2:</strong> family history, excess body weight (especially visceral fat), physical inactivity, older age, and certain ethnic backgrounds.</li>
+          <li><strong>Gestational:</strong> pregnancy hormones from the placenta that reduce insulin sensitivity, more likely with obesity or a family history of diabetes.</li>
+          <li>Shared contributors: chronic poor diet, sedentary behaviour, and in some cases certain medications or pancreatic conditions.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="symptoms">
+    <span class="tag">Section 4</span>
+    <h2>Signs &amp; symptoms</h2>
+    <p class="lede">Symptoms result directly from high blood glucose and the body's attempt to eliminate the excess.</p>
+    <table>
+      <tr><th>Symptom</th><th>Why it happens</th></tr>
+      <tr><td>Frequent urination</td><td>Kidneys filter excess glucose into urine, pulling water with it</td></tr>
+      <tr><td>Excessive thirst</td><td>Fluid loss from frequent urination triggers dehydration</td></tr>
+      <tr><td>Unexplained weight loss</td><td>Cells can't access glucose for energy, so the body burns fat and muscle</td></tr>
+      <tr><td>Fatigue</td><td>Cells are starved of usable energy despite high blood sugar</td></tr>
+      <tr><td>Blurred vision</td><td>High glucose causes swelling in the eye's lens</td></tr>
+      <tr><td>Slow-healing wounds</td><td>High glucose impairs circulation and immune response</td></tr>
+    </table>
+  </section>
+
+  <section id="diagnosis">
+    <span class="tag">Section 5</span>
+    <h2>Diagnosis</h2>
+    <div class="cols">
+      <div>
+        <p class="lede">Diagnosis relies on blood tests that measure glucose levels directly or estimate average glucose over time.</p>
+        <ul class="clean">
+          <li><strong>Fasting plasma glucose:</strong> ≥126 mg/dL after at least 8 hours without food indicates diabetes.</li>
+          <li><strong>HbA1c (glycated haemoglobin):</strong> ≥6.5% reflects average blood glucose over the past 2–3 months.</li>
+          <li><strong>Oral glucose tolerance test:</strong> blood glucose measured before and after drinking a sugary solution.</li>
+          <li><strong>Random plasma glucose:</strong> ≥200 mg/dL with classic symptoms supports a diagnosis at any time of day.</li>
+        </ul>
+      </div>
+      <div class="art">
+        <figure>
+          <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 30 h20 v20 h20 l-30 60 h20 l-40 80 v-60 h-20 z" fill="#b8452f" opacity="0.15"/>
+            <path d="M110 45 c0 0 -28 40 -28 62 a28 28 0 0 0 56 0 c0 -22 -28 -62 -28 -62 z" fill="#b8452f"/>
+            <path d="M96 100 a14 14 0 0 0 14 14" stroke="#f6f4ee" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <text x="110" y="205" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5c655f">A single drop of blood tells a lot</text>
+          </svg>
+          <figcaption>Blood glucose testing is the basis of every diagnostic method.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="complications">
+    <span class="tag">Section 6</span>
+    <h2>Complications</h2>
+    <p class="lede">Persistently high blood glucose damages blood vessels and nerves throughout the body over time.</p>
+    <div class="grid3">
+      <div class="card"><h3>Cardiovascular</h3><p>Increased risk of heart attack, stroke, and hypertension due to vessel damage.</p></div>
+      <div class="card"><h3>Nephropathy</h3><p>Progressive kidney damage that can lead to kidney failure.</p></div>
+      <div class="card"><h3>Retinopathy</h3><p>Damage to blood vessels in the retina, a leading cause of adult blindness.</p></div>
+      <div class="card"><h3>Neuropathy</h3><p>Nerve damage causing numbness, pain, or loss of sensation, especially in the feet.</p></div>
+      <div class="card"><h3>Poor wound healing</h3><p>Reduced circulation and immune function raise infection and amputation risk.</p></div>
+      <div class="card"><h3>Diabetic ketoacidosis</h3><p>A dangerous build-up of blood acids, mainly a risk in Type 1 diabetes.</p></div>
+    </div>
+  </section>
+
+  <section id="management">
+    <span class="tag">Section 7</span>
+    <h2>Treatment &amp; management</h2>
+    <div class="cols reverse">
+      <div class="art">
+        <figure>
+          <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <rect x="55" y="60" width="14" height="90" rx="4" fill="#1b4b43"/>
+            <rect x="49" y="50" width="26" height="16" rx="3" fill="#1b4b43"/>
+            <path d="M62 150 l-10 24 h20 z" fill="#1b4b43"/>
+            <circle cx="150" cy="100" r="36" fill="none" stroke="#b8892f" stroke-width="3"/>
+            <path d="M150 100 h30 M150 100 l16 -18" stroke="#b8892f" stroke-width="3" stroke-linecap="round"/>
+            <text x="110" y="205" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5c655f">Medication and monitoring, together</text>
+          </svg>
+          <figcaption>Management combines insulin or medication with regular monitoring.</figcaption>
+        </figure>
+      </div>
+      <div>
+        <p class="lede">There is no cure, but diabetes is highly manageable with consistent care.</p>
+        <ul class="clean">
+          <li><strong>Insulin therapy:</strong> essential for Type 1, and sometimes needed in advanced Type 2, delivered by injection or pump.</li>
+          <li><strong>Oral medications:</strong> such as metformin, improve insulin sensitivity or reduce glucose production, mainly for Type 2.</li>
+          <li><strong>Blood glucose monitoring:</strong> regular self-testing or continuous glucose monitors guide day-to-day decisions.</li>
+          <li><strong>Diet &amp; exercise:</strong> carbohydrate awareness and regular physical activity improve glucose control.</li>
+          <li><strong>Routine screening:</strong> regular eye, kidney, and foot exams catch complications early.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="prevention">
+    <span class="tag">Section 8</span>
+    <h2>Prevention</h2>
+    <p class="lede">Type 1 diabetes cannot currently be prevented, but Type 2 and gestational diabetes risk can often be reduced.</p>
+    <ul class="clean">
+      <li>Maintaining a healthy body weight and waist circumference</li>
+      <li>Regular physical activity — at least 150 minutes of moderate exercise per week</li>
+      <li>A diet rich in whole grains, vegetables, and fibre, with limited refined sugar</li>
+      <li>Routine screening for those with a family history or other risk factors</li>
+      <li>Avoiding tobacco use, which compounds cardiovascular risk</li>
+    </ul>
+  </section>
+
+  <section id="stats">
+    <span class="tag">Section 9</span>
+    <h2>Global impact</h2>
+    <p class="lede">Diabetes is one of the fastest-growing health challenges of the 21st century.</p>
+    <div class="stat-row">
+      <div class="stat"><span class="n">~537M</span><span class="l">Adults living with diabetes worldwide (IDF estimate)</span></div>
+      <div class="stat"><span class="n">~90%</span><span class="l">Of cases are Type 2 diabetes</span></div>
+      <div class="stat"><span class="n">1 in 2</span><span class="l">People with diabetes remain undiagnosed globally</span></div>
+    </div>
+    <p style="margin-top:1.2rem; font-size:.85rem; color:var(--muted);">Figures are widely cited approximations from global health bodies such as the International Diabetes Federation and WHO; consult their latest reports for current data to cite in your submission.</p>
+  </section>
+
+</div>
+
+<footer>
+  Prepared as an educational overview for university coursework. Not a substitute for medical advice — consult a healthcare professional for diagnosis or treatment decisions.
+</footer>
+
+</body>
+</html>
